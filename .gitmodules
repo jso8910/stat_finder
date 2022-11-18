@@ -1,3 +1,6 @@
 [submodule "situational_woba"]
 	path = situational_woba
 	url = https://github.com/jso8910/situational_woba
+[submodule "rbi_percent"]
+	path = rbi_percent
+	url = https://github.com/jso8910/rbi_percent

@@ -1,6 +1,7 @@
 import sys
 from situational_woba.gen_weights import main as gen_weights
 from situational_woba.calc_swOBA import main as calc_swOBA
+from rbi_percent.calc_rbi_perc import main as calc_rbi_perc
 from table2ascii import table2ascii  # type: ignore
 
 
@@ -10,11 +11,13 @@ def prep_stats(start_year: int, end_year: int):
 
 def print_stats(pid: str, start_year: int, end_year: int):
     swoba = calc_swOBA(start_year, end_year, False, pid)
+    rbi_perc = calc_rbi_perc(start_year, end_year, pid)
     print(table2ascii(
-        header=["swOBA"],
+        header=["swOBA", "RBI%"],
         body=[
             [
-                f"{round(swoba, 3):.3f}"
+                f"{round(swoba, 3):.3f}",
+                f"{round(rbi_perc * 100, 4):.2f}%"
             ]
         ]
     )
